@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+
 // Route::get('/test', function () {
 //     return 'Hola Platzi';
 // });
@@ -21,11 +20,7 @@ Route::get('/', function () {
 //     return ['saludo'=> 'Hola',
 //             'nombre' => 'Josue'];
 // });
-Route::get('/test', function () {
-    return view('test',[
-        'title' => 'Curso Laravel en PLatzi 2019'
-    ]);
-});
+Route::get('/dashboard','DashboardController@index');
 
 // Route::post()
 // Route::put()
