@@ -22,5 +22,12 @@ Route::get('/', function () {
 //             'nombre' => 'Josue'];
 // });
 Route::get('/test', function () {
-    return view('test');
+    return view('test',[
+        'title' => 'Curso Laravel en PLatzi 2019'
+    ]);
 });
+
+// Route::post()
+// Route::put()
+// Route::delete()
+// Route::any()
