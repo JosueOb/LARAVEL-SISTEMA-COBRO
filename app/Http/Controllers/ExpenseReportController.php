@@ -38,7 +38,11 @@ class ExpenseReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $report = new ExpenseReport();
+        $report->title = $request->get('title');//el nombre que se le asigno al campo que ingresa el valor de título
+        $report->save();
+        return \redirect('/expense_reports');
+
     }
 
     /**

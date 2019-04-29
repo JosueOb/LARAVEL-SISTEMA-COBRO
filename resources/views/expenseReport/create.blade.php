@@ -15,6 +15,7 @@
     <div class="col">
         <!--al especificar el metodo post esta ligada a la ruta que realiza la acción store-->
        <form action="/expense_reports" method='POST'>
+       @csrf 
        <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" class='form-control' id='title' name='title' placeholder='Type a title'>
