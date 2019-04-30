@@ -38,9 +38,17 @@ class ExpenseReportController extends Controller
      */
     public function store(Request $request)
     {
+        $validData = $request->validate([
+            'title'=> 'required|min:3'
+        ]);
+
+        // dd($validData);
+
         $report = new ExpenseReport();
-        $report->title = $request->get('title');//el nombre que se le asigno al campo que ingresa el valor de título
+        // $report->title = $request->get('title');//el nombre que se le asigno al campo que ingresa el valor de título
+        $report->title = $validData['title'];
         $report->save();
+        
         return \redirect('/expense_reports');
 
     }
