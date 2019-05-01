@@ -29,6 +29,9 @@ Route::get('/expense_reports/{id}/confirmDelete', 'ExpenseReportController@confi
 Route::get('/expense_reports/{expense_report}/expense/create', 'ExpenseController@create');
 Route::post('/expense_reports/{expense_report}/expense', 'ExpenseController@store');
 
+Route::get('/expense_reports/{id}/confirmSendMail', 'ExpenseReportController@confirmSendMail');
+Route::post('/expense_reports/{id}/sendMail', 'ExpenseReportController@sendMail');
+
 // Route::post()
 // Route::put()
 // Route::delete()
