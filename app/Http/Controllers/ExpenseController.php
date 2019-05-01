@@ -38,9 +38,15 @@ class ExpenseController extends Controller
      */
     public function store(Request $request, ExpenseReport $expenseReport)
     {
+        $validData = $request->validate([
+            'description'=>'required|min:3',
+            'amount'=>'required|numeric|min:1'
+        ]);
         $expense = new Expense();
-        $expense->description = $request->get('description');
-        $expense->amount = $request->get('amount');
+        // $expense->description = $request->get('description');
+        $expense->description = $validData['description'];
+        // $expense->amount = $request->get('amount');
+        $expense->amount = $validData['amount'];
         $expense->expense_report_id = $expenseReport->id;
         $expense->save();
         // dd($request->all());
