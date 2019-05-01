@@ -48,7 +48,7 @@ class ExpenseReportController extends Controller
         // $report->title = $request->get('title');//el nombre que se le asigno al campo que ingresa el valor de título
         $report->title = $validData['title'];
         $report->save();
-        
+
         return \redirect('/expense_reports');
 
     }
@@ -87,8 +87,13 @@ class ExpenseReportController extends Controller
     public function update(Request $request, $id)
     {
         // dd('PUT UPDATE');
+        $validData = $request->validate([
+            'title'=> 'required|min:3'
+        ]);
+
         $report = ExpenseReport::findOrFail($id);
-        $report->title = $request->get('title');
+        // $report->title = $request->get('title');
+        $report->title = $validData['title'];
         $report->save();
 
         return \redirect('/expense_reports');
