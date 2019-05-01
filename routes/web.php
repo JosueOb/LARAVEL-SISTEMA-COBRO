@@ -36,3 +36,6 @@ Route::post('/expense_reports/{id}/sendMail', 'ExpenseReportController@sendMail'
 // Route::put()
 // Route::delete()
 // Route::any()
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
